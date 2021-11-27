@@ -9,7 +9,7 @@ export default function renderImg(images) {
     .map(({ largeImageURL, webformatURL, tags, likes, views, comments, downloads }) => {
       return `<li class="photo-card">
         <a class="gallery-item link" href=${largeImageURL}>
-        <img src=${webformatURL} alt=${tags} loading="lazy" width="354" height="225" />
+        <img class="gallery-img" src=${webformatURL} alt=${tags} loading="lazy" width="354" height="225" />
         </a>
         <ul class="info list">
             <li class="info-item">

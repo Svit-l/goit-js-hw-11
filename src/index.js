@@ -15,8 +15,8 @@ refs.searchBtn.addEventListener('click', onSearchMore);
 
 async function onSearch(e) {
   e.preventDefault();
-  fetchFoto.resetPage();
   // console.log(fetchFoto.resetPage());
+  fetchFoto.resetPage();
   fetchFoto.searchQuery = refs.formInput.value.trim();
   refs.gallery.innerHTML = '';
 
@@ -37,7 +37,9 @@ async function onSearch(e) {
 
     Notiflix.Notify.success(`Hooray! We found ${response.data.totalHits} images.`);
     renderImg(response);
-    refs.searchBtn.classList.remove('is-hidden');
+    if (response.data.totalHits > 40) {
+      refs.searchBtn.classList.remove('is-hidden');
+    }
   });
   e.target.reset();
 }
@@ -58,7 +60,7 @@ async function onSearchMore() {
         .firstElementChild.getBoundingClientRect();
 
       window.scrollBy({
-        top: cardHeight * 1.2,
+        top: cardHeight * 1.5,
         behavior: 'smooth',
       });
     }

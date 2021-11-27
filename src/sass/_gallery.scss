@@ -42,9 +42,7 @@
   color: rgb(0, 0, 0);
   border-radius: 0 6px 6px 0;
   background-color: rgb(236, 236, 236);
-
   border: none;
-
   cursor: pointer;
 
   &:hover,
@@ -85,6 +83,23 @@
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.info {
+  display: flex;
+  text-align: center;
+  font-size: 14px;
+  justify-content: space-around;
+  padding: 10px 15px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+
+.text {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgb(53, 53, 53);
+}
+
 .load-more {
   display: block;
   margin-top: 20px;
@@ -112,21 +127,4 @@
 
 .load-more.is-hidden {
   display: none;
-}
-
-.info {
-  display: flex;
-  text-align: center;
-  font-size: 14px;
-  justify-content: space-between;
-  padding: 10px 15px;
-  color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
-}
-
-.text {
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgb(53, 53, 53);
 }
