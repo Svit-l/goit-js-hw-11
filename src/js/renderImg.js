@@ -32,14 +32,4 @@ export default function renderImg(images) {
 
   let gallery = new SimpleLightbox('.gallery-wrap a');
   gallery.refresh();
-
-  // =================Скрол к элементу
-  // const { height: cardHeight } = document
-  //   .querySelector('.gallery-wrap')
-  //   .firstElementChild.getBoundingClientRect();
-
-  // window.scrollBy({
-  //   top: cardHeight * 2,
-  //   behavior: 'smooth',
-  // });
 }

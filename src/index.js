@@ -51,6 +51,16 @@ async function onSearchMore() {
       Notiflix.Notify.success("We're sorry, but you've reached the end of search results.");
     } else {
       renderImg(response);
+
+      // =================Плавный скрол к элементу
+      const { height: cardHeight } = document
+        .querySelector('.gallery-wrap')
+        .firstElementChild.getBoundingClientRect();
+
+      window.scrollBy({
+        top: cardHeight,
+        behavior: 'smooth',
+      });
     }
   });
 }
