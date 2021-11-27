@@ -61,14 +61,15 @@
 }
 
 .gallery {
-  padding-top: 85px;
+  padding-top: 75px;
+  min-width: 100vw;
   margin: 0 auto;
 }
 
 .gallery-wrap {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  text-align: center;
   margin-left: -15px;
   margin-top: -15px;
   flex-basis: calc((100% - 45px) / 3);
