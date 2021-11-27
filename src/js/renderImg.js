@@ -27,10 +27,10 @@ export default function renderImg(images) {
     </div>`;
     })
     .join('');
-  refs.galleryWrap.insertAdjacentHTML('beforeend', markupImgCard);
+  refs.gallery.insertAdjacentHTML('beforeend', markupImgCard);
 
-  let galleryWrap = new SimpleLightbox('.gallery-wrap a');
-  galleryWrap.refresh();
+  let gallery = new SimpleLightbox('.gallery-wrap a');
+  gallery.refresh();
 
   const { height: cardHeight } = document
     .querySelector('.gallery-wrap')

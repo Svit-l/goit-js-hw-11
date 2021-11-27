@@ -3,33 +3,33 @@ import './sass/main.scss';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import Notiflix from 'notiflix';
-import ImagesApiService from './js/fetchFoto';
+import FetchFoto from './js/fetchFoto';
 import { getRefs } from './js/getRefs';
-import { renderImg } from './js/renderImg';
+import renderImg from './js/renderImg';
 
 const refs = getRefs();
-const imagesApiService = new ImagesApiService();
+const fetchFoto = new FetchFoto();
 refs.searchBtn.classList.add('is-hidden');
 
 refs.searchForm.addEventListener('submit', onSearch);
-refs.searchBtn.addEventListener('click', onSearchBtn);
+refs.searchBtn.addEventListener('click', onSearchMore);
 
 async function onSearch(e) {
   e.preventDefault();
-  imagesApiService.resetPage();
-  imagesApiService.searchQuery = e.currentTarget.elements.query.value;
-  refs.galleryWrap.innerHTML = '';
+  fetchFoto.resetPage();
+  fetchFoto.searchQuery = refs.formInput.value.trim();
+  refs.gallery.innerHTML = '';
 
-  if (imagesApiService.searchQuery === '') {
-    refs.galleryWrap.innerHTML = '';
+  if (fetchFoto.searchQuery === '') {
+    refs.gallery.innerHTML = '';
     refs.searchBtn.classList.add('is-hidden');
     return Notiflix.Notify.failure('Please enter your search data.');
   }
-  await imagesApiService.fetchFotoRef().then(response => {
+  await fetchFoto.fetchFotoRef().then(response => {
     const hitsImgLength = response.data.hits.length;
     if (hitsImgLength === 0) {
       refs.searchBtn.classList.add('is-hidden');
-      refs.galleryWrap.innerHTML = '';
+      refs.gallery.innerHTML = '';
       return Notiflix.Notify.failure(
         'Sorry, there are no images matching your search query. Please try again.',
       );
@@ -42,10 +42,10 @@ async function onSearch(e) {
   e.target.reset();
 }
 
-async function onSearchBtn() {
-  imagesApiService.fetchFotoRef().then(response => {
+async function onSearchMore() {
+  fetchFoto.fetchFotoRef().then(response => {
     const hitsImgLength = response.data.hits.length;
-    console.log(hitsImgLength);
+    // console.log(hitsImgLength);
     if (hitsImgLength < 40) {
       refs.searchBtn.classList.add('is-hidden');
       Notiflix.Notify.success("We're sorry, but you've reached the end of search results.");

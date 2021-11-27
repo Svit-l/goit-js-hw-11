@@ -12,7 +12,7 @@ const BASE_URL = 'https://pixabay.com/api/?key=';
 //   });
 // }
 
-export default class ImagesApiService {
+export default class FetchFoto {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
