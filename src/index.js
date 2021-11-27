@@ -58,7 +58,7 @@ async function onSearchMore() {
         .firstElementChild.getBoundingClientRect();
 
       window.scrollBy({
-        top: cardHeight,
+        top: cardHeight * 1.2,
         behavior: 'smooth',
       });
     }
