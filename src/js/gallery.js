@@ -1,11 +1,11 @@
-import Notiflix from 'notiflix';
-import debounce from 'lodash.debounce';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-import { fetchPictures } from './fetchFoto';
-import axios from 'axios';
-import { getRefs } from './getRefs';
-const refs = getRefs();
+// import Notiflix from 'notiflix';
+// import debounce from 'lodash.debounce';
+// // import SimpleLightbox from 'simplelightbox';
+// // import 'simplelightbox/dist/simple-lightbox.min.css';
+// import { fetchPictures } from './fetchFoto';
+// import axios from 'axios';
+// import { getRefs } from './getRefs';
+// const refs = getRefs();
 
 const DEBOUNCE_DELAY = 300;
 

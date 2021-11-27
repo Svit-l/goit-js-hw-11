@@ -50,6 +50,5 @@ async function onSearchMore() {
       refs.searchBtn.classList.add('is-hidden');
       Notiflix.Notify.success("We're sorry, but you've reached the end of search results.");
     }
-    renderImg(response);
   });
 }
