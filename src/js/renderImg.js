@@ -7,7 +7,7 @@ export default function renderImg(images) {
   const imgArray = images.data.hits;
   const markupImgCard = imgArray
     .map(({ largeImageURL, webformatURL, tags, likes, views, comments, downloads }) => {
-      return `<li class="photo-wrap">
+      return `<li class="photo-card">
         <a class="gallery-item link" href=${largeImageURL}>
         <img src=${webformatURL} alt=${tags} loading="lazy" width="354" height="225" />
         </a>
@@ -33,12 +33,13 @@ export default function renderImg(images) {
   let gallery = new SimpleLightbox('.gallery-wrap a');
   gallery.refresh();
 
-  const { height: cardHeight } = document
-    .querySelector('.gallery-wrap')
-    .firstElementChild.getBoundingClientRect();
+  // =================Скрол к элементу
+  // const { height: cardHeight } = document
+  //   .querySelector('.gallery-wrap')
+  //   .firstElementChild.getBoundingClientRect();
 
-  window.scrollBy({
-    top: cardHeight * 2,
-    behavior: 'smooth',
-  });
+  // window.scrollBy({
+  //   top: cardHeight * 2,
+  //   behavior: 'smooth',
+  // });
 }

@@ -1,5 +1,4 @@
 import './sass/main.scss';
-// import './js/gallery';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import Notiflix from 'notiflix';
@@ -17,6 +16,7 @@ refs.searchBtn.addEventListener('click', onSearchMore);
 async function onSearch(e) {
   e.preventDefault();
   fetchFoto.resetPage();
+  // console.log(fetchFoto.resetPage());
   fetchFoto.searchQuery = refs.formInput.value.trim();
   refs.gallery.innerHTML = '';
 
@@ -49,6 +49,14 @@ async function onSearchMore() {
     if (hitsImgLength < 40) {
       refs.searchBtn.classList.add('is-hidden');
       Notiflix.Notify.success("We're sorry, but you've reached the end of search results.");
+    } else {
+      renderImg(response);
     }
   });
 }
+
+// // ++++++++++++++Плавный скрол
+// window.scrollTo({
+//   top: document.documentElement.scrollHeight,
+//   behavior: 'smooth',
+// });
